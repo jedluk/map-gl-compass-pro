@@ -1,65 +1,54 @@
 import './Compass.css'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useMap } from 'react-map-gl'
-import { isUndefined, joinClassNames } from './lib'
+import {
+  deduceCompassSize,
+  deducePerspective,
+  isUndefined,
+  joinClassNames
+} from './lib'
+import { useMapOrientation } from './useMapOrientation.hook'
 
 interface CompassProps {
   mapId?: string
   size?: 'sm' | 'md' | 'lg'
   visualizePitch?: boolean
   wrapperClass?: string
+  onIdleClick?: () => void
 }
 
 function Compass(props: CompassProps) {
   const { visualizePitch = false, size = 'md', mapId = 'current' } = props
+
   const { [mapId]: map } = useMap()
+  const [bearing, pitch] = useMapOrientation(mapId, visualizePitch)
 
-  const [rotation, setRotation] = useState(map?.getBearing() ?? 0)
-  const [pitch, setPitch] = useState(map?.getPitch() ?? 0)
-
-  useEffect(() => {
-    if (isUndefined(map)) {
-      return
+  const handleNorthIdleClick = () => {
+    if (isUndefined(props.onIdleClick)) {
+      map?.setBearing(0)
+      map?.setPitch(0)
+    } else {
+      props.onIdleClick()
     }
+  }
 
-    const handleRotate = () => setRotation(-map.getBearing())
-
-    map.on('rotate', handleRotate)
-    return () => {
-      map.off('rotate', handleRotate)
-    }
-  }, [map])
-
-  useEffect(() => {
-    if (isUndefined(map) || !visualizePitch) {
-      return
-    }
-
-    const handlePitch = () => setPitch(map.getPitch())
-
-    map.on('pitch', handlePitch)
-
-    return () => {
-      map.off('pitch', handlePitch)
-    }
-  }, [map, visualizePitch])
-
-  const transform = [
-    `rotate(${rotation}deg)`,
-    visualizePitch && `rotateX(${pitch}deg)`
-  ]
-    .filter(Boolean)
-    .join(' ')
+  const perspective = deducePerspective(size)
 
   const compassStyle = {
-    '--compass-size': size === 'sm' ? '25px' : size === 'md' ? '75px' : '150px',
-    transform: transform
+    '--compass-size': deduceCompassSize(size),
+    transform: joinClassNames(
+      `rotate(${bearing}deg)`,
+      visualizePitch ? `rotateX(${pitch}deg)` : ''
+    )
   }
 
   return (
-    <div className={joinClassNames('compass-wrapper', props.wrapperClass)}>
-      <div className="compass" style={compassStyle}>
+    <div
+      className={joinClassNames(props.wrapperClass, 'compass-wrapper')}
+      style={{ perspective }}
+    >
+      <div className="compass" style={compassStyle} data-size={size}>
         <div className="line" />
         <div className="line" />
         <div className="line" />
@@ -67,7 +56,7 @@ function Compass(props: CompassProps) {
         <div className="line" />
         <div className="line" />
         <div className="inner-face" />
-        <div className="needlde" />
+        <div className="needlde" onClick={handleNorthIdleClick} />
       </div>
     </div>
   )
