@@ -9,7 +9,7 @@ As for now map-gl-compass-work works only with react & react-map-gl (react-map-g
 
 ```sh
 import MapGL from 'react-map-gl'
-import maplibregl from 'maplibre-gl';
+import maplibregl from 'maplibre-gl'
 import CompassPro from 'map-gl-compass-pro'
 
 (...)
@@ -29,7 +29,6 @@ return (
         wrapperClass="className" // optional, default placement is bottom left corner (absolutely positioned)
         size="lg" // one of 'sm' | 'md' | 'lg'
         onNeedleClick={() => doSth()} // default set pitch & bearing to 0
-       />
       />
     (...)    
     </MapGL>
