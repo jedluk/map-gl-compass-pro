@@ -24,7 +24,19 @@
         inset -4px -4px 10px rgba(67, 67, 67, 0.5),
         4px 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
+}
 
+
+.compass[data-size="sm"] {
+    border-width: 2px;
+    box-shadow: -2px -2px 5px rgba(67, 67, 67, 0.5),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.5),
+        inset -2px -2px 5px rgba(67, 67, 67, 0.5),
+        2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.compass[data-size="lg"] {
+    border-width: 8px;
 }
 
 .line {
@@ -40,11 +52,27 @@
     transform: rotate(var(--rotation));
 }
 
+.compass[data-size="sm"] .line {
+    --width: 1px;
+}
+
+.compass[data-size="lg"] .line {
+    --width: 3px;
+}
+
 .line:nth-of-type(1) {
     --width: 4px;
     --rotation: 0deg;
 
     background-color: var(--color-compass-north-idle);
+}
+
+.compass[data-size="sm"] .line:nth-of-type(1) {
+    --width: 2px;
+}
+
+.compass[data-size="lg"] .line:nth-of-type(1) {
+    --width: 6px;
 }
 
 .line:nth-of-type(2) {
@@ -82,6 +110,14 @@
     z-index: 1;
 }
 
+.compass[data-size="sm"] .inner-face {
+    border-width: 2px;
+}
+
+.compass[data-size="lg"] .inner-face {
+    border-width: 6px;
+}
+
 .needlde {
     --width: var(--compass-size);
     --height: var(--compass-size);
@@ -89,6 +125,7 @@
     background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMDAgMTAwMCI+CiAgICA8cGF0aCBmaWxsPSIjYjMwMDAwIiBmaWxsLXJ1bGU9ImluaGVyaXQiCiAgICAgICAgZD0iTTU3OC44LDQyMS4ybC0zMTUtMTU3LjRsMTU3LjUsMzE0LjlsMzE0LjksMTU3LjVMNTc4LjgsNDIxLjJ6IE00NTcsNTQ0LjdMMzQ2LjEsMzM3LjhsMjA3LjQsMTE5TDQ1Nyw1NDQuN3oiIC8+Cjwvc3ZnPg==);
     background-size: contain;
     background-position: center;
+    cursor: pointer;
     position: absolute;
     transform: rotate(225deg);
     transform-origin: center;
