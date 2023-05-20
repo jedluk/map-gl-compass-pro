@@ -18,7 +18,7 @@ interface CompassProps {
   onNeedleClick?: () => void
 }
 
-function Compass(props: CompassProps) {
+export function Compass(props: CompassProps) {
   const { visualizePitch = false, size = 'md', mapId = 'current' } = props
 
   const { [mapId]: map } = useMap()
@@ -63,5 +63,3 @@ function Compass(props: CompassProps) {
     </div>
   )
 }
-
-export default Compass
