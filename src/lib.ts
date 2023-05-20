@@ -6,8 +6,8 @@ export function isUndefined<T>(item: T | undefined): item is undefined {
   return item === undefined
 }
 
-export function deduceCompassSize(size: 'sm' | 'md' | 'lg'): number {
-  return size === 'sm' ? 50 : size === 'md' ? 100 : 150
+export function deduceCompassSize(size: 'sm' | 'md' | 'lg'): string {
+  return size === 'sm' ? '50px' : size === 'md' ? '100px' : '150px'
 }
 
 export function deducePerspective(size: 'sm' | 'md' | 'lg'): number {
