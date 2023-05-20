@@ -1,4 +1,4 @@
-import './Compass.css'
+import './style/Compass.css'
 
 import React from 'react'
 import { useMap } from 'react-map-gl'
@@ -15,7 +15,7 @@ interface CompassProps {
   size?: 'sm' | 'md' | 'lg'
   visualizePitch?: boolean
   wrapperClass?: string
-  onIdleClick?: () => void
+  onNeedleClick?: () => void
 }
 
 function Compass(props: CompassProps) {
@@ -24,16 +24,18 @@ function Compass(props: CompassProps) {
   const { [mapId]: map } = useMap()
   const [bearing, pitch] = useMapOrientation(mapId, visualizePitch)
 
-  const handleNorthIdleClick = () => {
-    if (isUndefined(props.onIdleClick)) {
+  const handleNorthNeedleClick = () => {
+    if (isUndefined(props.onNeedleClick)) {
       map?.setBearing(0)
       map?.setPitch(0)
     } else {
-      props.onIdleClick()
+      props.onNeedleClick()
     }
   }
 
-  const perspective = deducePerspective(size)
+  const wrapperStyle = {
+    perspective: deducePerspective(size)
+  }
 
   const compassStyle = {
     '--compass-size': deduceCompassSize(size),
@@ -45,18 +47,18 @@ function Compass(props: CompassProps) {
 
   return (
     <div
-      className={joinClassNames(props.wrapperClass, 'compass-wrapper')}
-      style={{ perspective }}
+      className={joinClassNames(props.wrapperClass, 'compass-pro-wrapper')}
+      style={wrapperStyle}
     >
-      <div className="compass" style={compassStyle} data-size={size}>
-        <div className="line" />
-        <div className="line" />
-        <div className="line" />
-        <div className="line" />
-        <div className="line" />
-        <div className="line" />
+      <div data-size={size} className="compass-pro" style={compassStyle}>
+        <div className="needle" />
+        <div className="needle" />
+        <div className="needle" />
+        <div className="needle" />
+        <div className="needle" />
+        <div className="needle" />
         <div className="inner-face" />
-        <div className="needlde" onClick={handleNorthIdleClick} />
+        <div className="needlde-north" onClick={handleNorthNeedleClick} />
       </div>
     </div>
   )

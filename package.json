@@ -4,8 +4,9 @@
   "description": "Compass pro for react-map-gl based projects",
   "main": "dist/Compass.js",
   "scripts": {
-    "build": "rimraf dist && npx tsc && cp src/*.css dist",
-    "build:watch": "rimraf dist && mkdir dist && cp src/*.css dist && npx tsc --watch"
+    "build": "rimraf dist && npx tsc && cp -r src/style dist/style",
+    "build:watch": "rimraf dist && mkdir dist && cp src/style/*.css dist/style && npx tsc --watch",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0"
   },
   "peerDependencies": {
     "react-map-gl": ">=6.0.0"

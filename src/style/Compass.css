@@ -1,11 +1,11 @@
-.compass-wrapper {
+.compass-pro-wrapper {
     position: absolute;
     bottom: 1rem;
     left: 1rem;
     perspective: 130px;
 }
 
-.compass {
+.compass-pro {
     --color-compass-background: #282828;
     --color-compass-north-idle: #b30000;
     --color--compass-idle: #f2f2f2;
@@ -27,7 +27,7 @@
 }
 
 
-.compass[data-size="sm"] {
+.compass-pro[data-size="sm"] {
     border-width: 2px;
     box-shadow: -2px -2px 5px rgba(67, 67, 67, 0.5),
         inset 2px 2px 5px rgba(0, 0, 0, 0.5),
@@ -35,11 +35,11 @@
         2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.compass[data-size="lg"] {
+.compass-pro[data-size="lg"] {
     border-width: 8px;
 }
 
-.line {
+.compass-pro .needle {
     --width: 2px;
 
     background-color: var(--color--compass-idle);
@@ -52,50 +52,50 @@
     transform: rotate(var(--rotation));
 }
 
-.compass[data-size="sm"] .line {
+.compass-pro[data-size="sm"] .needle {
     --width: 1px;
 }
 
-.compass[data-size="lg"] .line {
+.compass-pro[data-size="lg"] .needle {
     --width: 3px;
 }
 
-.line:nth-of-type(1) {
+.needle:nth-of-type(1) {
     --width: 4px;
     --rotation: 0deg;
 
     background-color: var(--color-compass-north-idle);
 }
 
-.compass[data-size="sm"] .line:nth-of-type(1) {
+.compass-pro[data-size="sm"] .needle:nth-of-type(1) {
     --width: 2px;
 }
 
-.compass[data-size="lg"] .line:nth-of-type(1) {
+.compass-pro[data-size="lg"] .needle:nth-of-type(1) {
     --width: 6px;
 }
 
-.line:nth-of-type(2) {
+.needle:nth-of-type(2) {
     --rotation: 30deg;
 }
 
-.line:nth-of-type(3) {
+.needle:nth-of-type(3) {
     --rotation: 60deg;
 }
 
-.line:nth-of-type(4) {
+.needle:nth-of-type(4) {
     --rotation: 90deg;
 }
 
-.line:nth-of-type(5) {
+.needle:nth-of-type(5) {
     --rotation: 120deg;
 }
 
-.line:nth-of-type(6) {
+.needle:nth-of-type(6) {
     --rotation: 150deg;
 }
 
-.inner-face {
+.compass-pro .inner-face {
     position: absolute;
     background: var(--color-compass-background);
     opacity: 0.9;
@@ -110,15 +110,15 @@
     z-index: 1;
 }
 
-.compass[data-size="sm"] .inner-face {
+.compass-pro[data-size="sm"] .inner-face {
     border-width: 2px;
 }
 
-.compass[data-size="lg"] .inner-face {
+.compass-pro[data-size="lg"] .inner-face {
     border-width: 6px;
 }
 
-.needlde {
+.compass-pro .needlde-north {
     --width: var(--compass-size);
     --height: var(--compass-size);
 
