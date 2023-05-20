@@ -5,7 +5,7 @@ New generation maps require new generation tools!
 
 
 ## Usage
-As for now map-gl-compass-work works only with react & react-map-gl (react-map-gl is peer dependency). If community will express will of using it with raw mapbox / maplibre library I will add some wrapper around this component.
+As for now map-gl-compass-pro works only with react & react-map-gl (react-map-gl is peer dependency). If community will express will of using it with raw mapbox / maplibre library I will add some wrapper around this component.
 
 ```sh
 import MapGL from 'react-map-gl'
