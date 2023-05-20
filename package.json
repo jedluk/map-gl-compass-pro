@@ -1,6 +1,6 @@
 {
   "name": "map-gl-compass-pro",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Compass pro for react-map-gl based projects",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -17,6 +17,7 @@
     "url": "https://github.com/jedluk/map-gl-compass-pro"
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "bugs": {
