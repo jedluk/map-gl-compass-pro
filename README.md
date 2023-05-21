@@ -12,25 +12,30 @@ import MapGL from 'react-map-gl'
 import maplibregl from 'maplibre-gl'
 import CompassPro from 'map-gl-compass-pro'
 
-(...)
-return (
-    <MapGL
-      initialViewState={{
-        longitude: -14.5580,
-        latitude: 53.4441,
-        zoom: 14
-      }}
-      mapLib={maplibregl}
-      mapStyle="http:://my-domain.com/mapStyle.json"
-    >
-      <CompassPro 
-        visualizePitch // default false
-        mapId="myMap" // default current
-        wrapperClass="className" // optional, default placement is bottom left corner (absolutely positioned)
-        size="lg" // one of 'sm' | 'md' | 'lg'
-        onNeedleClick={() => doSth()} // default set pitch & bearing to 0
-      />
-    (...)    
-    </MapGL>
-  );
+function Map(){
+
+  (...)
+
+  return (
+      <MapGL
+        initialViewState={{
+          longitude: -14.5580,
+          latitude: 53.4441,
+          zoom: 14
+        }}
+        mapLib={maplibregl}
+        mapStyle="https://my-domain.com/mapStyle.json"
+      >
+        <CompassPro 
+          mapId="myMap" // optional: default current [read more](https://visgl.github.io/react-map-gl/docs/api-reference/map#id)
+          size="lg" // default: 'md', one of 'sm' | 'md' | 'lg'
+          visualizePitch={true} // optional: default false
+          onNeedleClick={() => doSth()} // optional: set pitch & bearing to 0
+          wrapperClass="className" // optional, default placement is bottom left corner (absolutely positioned)
+        />
+      (...)    
+      </MapGL>
+    );
+}
+
 ```
