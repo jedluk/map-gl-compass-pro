@@ -4,6 +4,7 @@
   "description": "Compass pro for react-map-gl based projects",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "rimraf dist && npm run build:esm && npm run build:cjs",
     "build:esm": "npx tsc --outDir dist/esm && cp -r src/style dist/esm/style",
