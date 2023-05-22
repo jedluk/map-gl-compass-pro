@@ -1,4 +1,4 @@
-# map-gl-compass-pro
+# map-gl-compass-pro  [![npm](https://img.shields.io/npm/v/map-gl-compass-pro.svg)](https://www.npmjs.com/package/map-gl-compass-pro) [![npm downloads](https://img.shields.io/npm/dm/map-gl-compass-pro.svg)](https://www.npmjs.com/package/map-gl-compass-pro)
 New generation maps require new generation tools! 
 
 ![Screen](https://raw.githubusercontent.com//jedluk/random/master/compass-pro/compass.png)
