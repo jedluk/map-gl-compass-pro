@@ -3,6 +3,7 @@ New generation maps require new generation tools!
 
 ![Screen](https://raw.githubusercontent.com//jedluk/random/master/compass-pro/compass.png)
 
+## [Example implementation](https://jedluk.github.io/hexifier/)
 
 ## Usage
 As for now map-gl-compass-pro works only with react & react-map-gl (react-map-gl is peer dependency). If community will express will of using it with raw mapbox / maplibre library I will add some wrapper around this component.
