@@ -31,7 +31,7 @@ function Map(){
           mapId="myMap" // optional, default: current
           size="lg" // optional, one of 'sm' | 'md' | 'lg', default: 'md', 
           visualizePitch={true} // optional, default false
-          onNeedleClick={handleNeedleClick} // optional, default set pitch & bearing to 0
+          onNeedleClick={handleNeedleClick} // optional, default map.resetNorth() & map.resetNortPitch() is called
           wrapperClass="ownClassName" // optional, default absolutely positioned in bottom left corner
         />
       (...)    
