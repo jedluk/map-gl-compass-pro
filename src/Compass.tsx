@@ -47,7 +47,7 @@ export function Compass(props: CompassProps) {
 
   return (
     <div
-      className={joinClassNames(props.wrapperClass, 'compass-pro-wrapper')}
+      className={props.wrapperClass ?? 'compass-pro-wrapper'}
       style={wrapperStyle}
     >
       <div data-size={size} className="compass-pro" style={compassStyle}>
