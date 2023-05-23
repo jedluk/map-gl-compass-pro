@@ -28,15 +28,15 @@ function Map(){
         mapStyle="https://my-domain.com/mapStyle.json"
       >
         <CompassPro 
-          mapId="myMap" // optional: default current
-          size="lg" // default: 'md', one of 'sm' | 'md' | 'lg'
-          visualizePitch={true} // optional: default false
-          onNeedleClick={handleNeedleClick} // optional: set pitch & bearing to 0
-          wrapperClass="className" // optional, default placement is bottom left corner (absolutely positioned)
+          mapId="myMap" // optional, default: current
+          size="lg" // optional, one of 'sm' | 'md' | 'lg', default: 'md', 
+          visualizePitch={true} // optional, default false
+          onNeedleClick={handleNeedleClick} // optional, default set pitch & bearing to 0
+          wrapperClass="ownClassName" // optional, default absolutely positioned in bottom left corner
         />
       (...)    
       </MapGL>
     );
 }
 ```
-[read more about mapId](https://visgl.github.io/react-map-gl/docs/api-reference/map#id)
+Please make sure that Compass is child of MapGL, otherwise it won't work. Also read more about [react-map-gl setup](https://visgl.github.io/react-map-gl/docs/get-started/get-started) and [mapId](https://visgl.github.io/react-map-gl/docs/api-reference/map#id).
