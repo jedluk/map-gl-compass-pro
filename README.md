@@ -20,7 +20,7 @@ function Map(){
   return (
       <MapGL
         initialViewState={{
-          longitude: -14.5580,
+          longitude: 14.5580,
           latitude: 53.4441,
           zoom: 14
         }}
