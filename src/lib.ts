@@ -7,7 +7,10 @@ export function isUndefined<T>(item: T | undefined): item is undefined {
 }
 
 export function deduceCompassSize(size: 'xs' | 'sm' | 'md' | 'lg'): string {
-  return size === 'sm' ? '50px' : size === 'md' ? '100px' : '150px'
+  if (size === 'xs') return '32px'
+  if (size === 'sm') return '64px'
+  if (size === 'md') return '100px'
+  return '150px'
 }
 
 export function deducePerspective(size: 'xs' | 'sm' | 'md' | 'lg'): number {

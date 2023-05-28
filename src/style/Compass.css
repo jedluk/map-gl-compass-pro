@@ -14,9 +14,8 @@
     width: var(--compass-size);
     height: var(--compass-size);
     background: var(--color-compass-background);
-    position: relative;
-    padding: 2rem;
     border: 5px solid var(--color-compass-background);
+    position: relative;
     transform-origin: center;
     transform: rotate(0deg);
     box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
@@ -27,6 +26,7 @@
 }
 
 
+.compass-pro[data-size="xs"],
 .compass-pro[data-size="sm"] {
     border-width: 2px;
     box-shadow: -2px -2px 5px rgba(67, 67, 67, 0.5),
@@ -52,6 +52,7 @@
     transform: rotate(var(--rotation));
 }
 
+.compass-pro[data-size="xs"] .needle,
 .compass-pro[data-size="sm"] .needle {
     --width: 1px;
 }
@@ -67,6 +68,7 @@
     background-color: var(--color-compass-north-idle);
 }
 
+.compass-pro[data-size="xs"] .needle:nth-of-type(1),
 .compass-pro[data-size="sm"] .needle:nth-of-type(1) {
     --width: 2px;
 }
@@ -110,6 +112,7 @@
     z-index: 1;
 }
 
+.compass-pro[data-size="xs"] .inner-face,
 .compass-pro[data-size="sm"] .inner-face {
     border-width: 2px;
 }

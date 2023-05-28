@@ -58,9 +58,7 @@ export function Compass(props: CompassProps) {
         <div className="needle" />
         <div className="needle" />
         <div className="inner-face" />
-        {/* {size !== 'xs' && (
-          <div className="needlde-north" onClick={handleNorthNeedleClick} />
-        )} */}
+        <div className="needlde-north" onClick={handleNorthNeedleClick} />
       </div>
     </div>
   )
