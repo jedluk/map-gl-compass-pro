@@ -1,6 +1,6 @@
 {
   "name": "map-gl-compass-pro",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Compass pro for react-map-gl based projects",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
