@@ -26,8 +26,8 @@ export function Compass(props: CompassProps) {
 
   const handleNorthNeedleClick = () => {
     if (isUndefined(props.onNeedleClick)) {
-      map?.setBearing(0)
-      map?.setPitch(0)
+      map?.resetNorth()
+      map?.resetNorthPitch()
     } else {
       props.onNeedleClick()
     }
