@@ -12,7 +12,7 @@ import { useMapOrientation } from './useMapOrientation.hook'
 
 interface CompassProps {
   mapId?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   visualizePitch?: boolean
   wrapperClass?: string
   onNeedleClick?: () => void
@@ -58,7 +58,9 @@ export function Compass(props: CompassProps) {
         <div className="needle" />
         <div className="needle" />
         <div className="inner-face" />
-        <div className="needlde-north" onClick={handleNorthNeedleClick} />
+        {/* {size !== 'xs' && (
+          <div className="needlde-north" onClick={handleNorthNeedleClick} />
+        )} */}
       </div>
     </div>
   )

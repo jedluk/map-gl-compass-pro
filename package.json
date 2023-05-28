@@ -1,15 +1,12 @@
 {
   "name": "map-gl-compass-pro",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Compass pro for react-map-gl based projects",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && npm run build:esm && npm run build:cjs",
-    "build:esm": "npx tsc --outDir dist/esm && cp -r src/style dist/esm/style",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs && cp -r src/style dist/cjs/style",
-    "build:watch": "rimraf dist && mkdir dist && cp src/style/*.css dist/style && npx tsc --watch",
+    "build": "rimraf dist && npx tsc && node ./tools/copyCss",
+    "build:watch": "npx tsc --watch & node ./tools/copyCss --watch",
     "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0",
     "publish": "npm run build && npm version patch -m \"bump version\" && npm publish --access public"
   },
