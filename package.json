@@ -8,6 +8,7 @@
     "build": "rimraf dist && npx tsc && node ./tools/copyCss",
     "build:watch": "npx tsc --watch & node ./tools/copyCss --watch",
     "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0",
+    "publish:test": "npm publish --access public --dry-run",
     "publish": "npm run build && npm version patch -m \"bump version\" && npm publish --access public"
   },
   "repository": {

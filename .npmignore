@@ -1,1 +1,23 @@
 !dist
+
+src
+node_modules
+tools
+.eslintrc.json
+.prettierrc.json
+.nvmrc
+tsconfig.json
+!dist
+
+# Exclude version control files
+.git/
+.gitignore
+.svn/
+
+# Exclude IDE-specific files
+.vscode/
+.idea/
+
+# Exclude dependency management files
+package-lock.json
+yarn.lock
