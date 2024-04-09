@@ -12,3 +12,13 @@ body {
     bottom: 1rem;
     left: 1rem;
 }
+
+.panel {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.panel select {
+    margin-right: 5px;
+}
