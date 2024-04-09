@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+}
+
+.maplibregl-ctrl-bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+}
