@@ -2,9 +2,9 @@
   "name": "map-gl-compass-pro",
   "version": "0.1.1",
   "description": "Compass pro for react-map-gl based projects",
+  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
-  "type": "module",
   "scripts": {
     "build": "rimraf dist && npx tsc && node ./tools/copyCss",
     "build:watch": "npx tsc --watch & node ./tools/copyCss --watch",
