@@ -9,7 +9,7 @@
       "require": "./dist/compass.umd.js"
     }
   },
-  "types": "index.d.ts",
+  "types": "Compass.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

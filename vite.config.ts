@@ -18,12 +18,6 @@ export default defineConfig(({ command }) => {
       }
     },
     plugins: [
-      react(),
-      command === 'build' &&
-      dts({
-        rollupTypes: true,
-        outDir: __dirname
-      })
-    ]
+      react()]
   }
 })
