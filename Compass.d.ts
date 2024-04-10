@@ -3,4 +3,4 @@ import { CompassProps } from 'maplibre-compass-pro';
 
 export default function CompassComponent(props: CompassProps & {
     position?: ControlPosition;
-}): any;
+}): null;
