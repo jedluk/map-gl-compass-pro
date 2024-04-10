@@ -3,7 +3,7 @@ import './index.css'
 import { CompassProps } from 'maplibre-compass-pro'
 import React, { useState } from 'react'
 import Compass from './Compass'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import maplibre from 'maplibre-gl'
 import { Map } from 'react-map-gl'
 
@@ -49,6 +49,5 @@ function App() {
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <App />
-)
+const root = createRoot(document.getElementById('root') as HTMLElement)
+root.render(<App />)
