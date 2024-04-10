@@ -10,15 +10,13 @@ export default function CompassComponent(
 ) {
   const { size, visualizePitch, onClick, position, displayDirection } = props
 
-  const { current: compass } = useRef(
-    new Compass({ size, visualizePitch, onClick })
-  )
+  const compassRef = useRef(new Compass({ size, visualizePitch, onClick }))
 
-  useControl(() => compass, { position })
+  useControl(() => compassRef.current, { position })
 
   useEffect(() => {
     if (size) {
-      compass.changeSize(size)
+      compassRef.current.changeSize(size)
     }
   }, [size])
 
@@ -26,6 +24,7 @@ export default function CompassComponent(
     if (!displayDirection) {
       return
     }
+    const compass = compassRef.current
     compass.toggle()
     return () => compass.toggle()
   }, [displayDirection])
