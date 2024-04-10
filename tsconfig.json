@@ -16,7 +16,7 @@
         "forceConsistentCasingInFileNames": true
     },
     "include": ["src"],
-    "exclude": ["node_modules","tools", "src/**/*.css"]
+    "exclude": ["node_modules", "src/**/*.css"]
   }
 
 
