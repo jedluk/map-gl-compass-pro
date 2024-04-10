@@ -1,23 +1,41 @@
-!dist
-
-src
-node_modules
-tools
-.eslintrc.json
-.prettierrc.json
-.nvmrc
-tsconfig.json
-!dist
-
-# Exclude version control files
-.git/
-.gitignore
-.svn/
-
 # Exclude IDE-specific files
 .vscode/
 .idea/
 
 # Exclude dependency management files
 package-lock.json
+pnpm-lock.yaml
 yarn.lock
+
+# Development related
+.vscode/
+.idea/
+node_modules/
+tests/
+
+# Exclude version control files
+.git/
+.gitignore
+.svn/
+
+# Source files
+src/**/*.ts
+src/**/*.tsx
+public/
+
+# config
+tsconfig.json
+vite.config.js
+yarn.lock
+index.html
+.gitignore
+.nvmrc
+
+# Exclude any other development-specific files or directories
+
+# Include necessary files
+!dist/
+!README.md
+!package.json
+!index.d.ts
+!license
