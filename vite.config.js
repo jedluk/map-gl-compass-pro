@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'node:url'
 import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
