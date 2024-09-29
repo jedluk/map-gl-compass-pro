@@ -20,8 +20,9 @@ type CompassProps = {
 ⚒️⚒️⚒️
 ```javascript
 import 'maplibre-gl/dist/maplibre-gl.css'
+import 'map-gl-compass-pro/dist/style.css'
 
-import Map from 'react-map-gl/maplibre'
+import MapGL from 'react-map-gl/maplibre'
 import Compass from 'maplibre-compass-pro'
 import { useState } from 'react'
 
@@ -30,14 +31,20 @@ export function DemoApp() {
 	const [displayDirection, setDisplayDirection] = useState(true)
 
 	return (
-		<Map
+		<MapGL
 			style={{ width: '100%', height: '100vh' }}
 			mapStyle="/<your_map_style>.json"
 		>
 			<Compass size={compassSize} displayDirection={displayDirection} />
-		</Map>
+		</MapGL>
 	)
 }
 ```
 
-Please make sure that Compass is child of MapGL, otherwise it won't work 🙏🙏🙏. 
+Please make sure that:
+- compass is child of MapGL component;
+- compass styles are imported in entrypoint;
+  
+Up to date react-map-gl setup available [here](https://visgl.github.io/react-map-gl/docs/get-started)
+
+Enjoy 🗺️🧭

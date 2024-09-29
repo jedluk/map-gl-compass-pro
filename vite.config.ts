@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => {
         fileName: 'compass'
       },
       rollupOptions: {
-        external: ['react-map-gl', 'maplibre-gl', 'react', 'react-dom', 'maplibre-compass-pro']
+        external: ['react-map-gl', 'maplibre-gl', 'react', 'react-dom']
       }
     },
     plugins: [
