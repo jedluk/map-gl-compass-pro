@@ -64,6 +64,6 @@
     "vite-plugin-dts": "^3.8.1"
   },
   "dependencies": {
-    "maplibre-compass-pro": "0.3.0"
+    "maplibre-compass-pro": "0.4.0"
   }
 }

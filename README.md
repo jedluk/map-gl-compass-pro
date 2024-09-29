@@ -1,42 +1,43 @@
 # map-gl-compass-pro  [![npm](https://img.shields.io/npm/v/map-gl-compass-pro.svg)](https://www.npmjs.com/package/map-gl-compass-pro) [![npm downloads](https://img.shields.io/npm/dm/map-gl-compass-pro.svg)](https://www.npmjs.com/package/map-gl-compass-pro)
-New generation maps require new generation tools! 
+OFFICIAL WRAPPER FOR [maplibre-compass-pro](https://github.com/jedluk/maplibre-compass-pro)
 
-![Screen](https://raw.githubusercontent.com//jedluk/random/master/compass-pro/compass.png)
+![Screen](https://github.com/jedluk/maplibre-compass-pro/blob/main/demo.png?raw=true)
 
-## [Example implementation](https://jedluk.github.io/hexifier/)
+## [LIVE DEMO](https://codesandbox.io/p/sandbox/peaceful-mirzakhani-tv38ck)
 
 ## Usage
-As for now map-gl-compass-pro works only with react & react-map-gl (react-map-gl is peer dependency). If community will express will of using it with raw mapbox / maplibre library I will add some wrapper around this component.
+See [Demo App component](./src/DemoApp.tsx) to get detailed overview how to embed component in react-map-gl based project.
 
+Component props:
+```typescript
+type CompassProps = {
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    displayDirection?: boolean;
+    visualizePitch?: boolean;
+    onClick?: () => void;
+};
+```
+⚒️⚒️⚒️
 ```javascript
-import MapGL from 'react-map-gl'
-import maplibregl from 'maplibre-gl'
-import CompassPro from 'map-gl-compass-pro'
+import 'maplibre-gl/dist/maplibre-gl.css'
 
-function Map(){
+import Map from 'react-map-gl/maplibre'
+import Compass from 'maplibre-compass-pro'
+import { useState } from 'react'
 
-  (...)
+export function DemoApp() {
+	const [compassSize, setCompassSize] = useState('md')
+	const [displayDirection, setDisplayDirection] = useState(true)
 
-  return (
-      <MapGL
-        initialViewState={{
-          longitude: 14.5580,
-          latitude: 53.4441,
-          zoom: 14
-        }}
-        mapLib={maplibregl}
-        mapStyle="https://my-domain.com/mapStyle.json"
-      >
-        <CompassPro 
-          mapId="myMap" // optional, default: current
-          size="lg" // optional, one of  'xs' | 'sm' | 'md' | 'lg', default: 'md'
-          visualizePitch={true} // optional, default false
-          onNeedleClick={handleNeedleClick} // optional, default set pitch & bearing to 0 
-          wrapperClass="ownClassName" // optional, default absolutely positioned in bottom left corner
-        />
-      (...)    
-      </MapGL>
-    );
+	return (
+		<Map
+			style={{ width: '100%', height: '100vh' }}
+			mapStyle="/<your_map_style>.json"
+		>
+			<Compass size={compassSize} displayDirection={displayDirection} />
+		</Map>
+	)
 }
 ```
-Please make sure that Compass is child of MapGL, otherwise it won't work. Also read more about [react-map-gl setup](https://visgl.github.io/react-map-gl/docs/get-started/get-started) and [mapId](https://visgl.github.io/react-map-gl/docs/api-reference/map#id).
+
+Please make sure that Compass is child of MapGL, otherwise it won't work 🙏🙏🙏. 
