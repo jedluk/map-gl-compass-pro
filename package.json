@@ -2,14 +2,27 @@
   "name": "map-gl-compass-pro",
   "version": "0.1.1",
   "description": "Compass pro for react-map-gl based projects",
-  "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
+  "type": "module",
+  "main": "./dist/compass.umd.cjs",
+  "module": "./dist/compass.js", 
+  "types": "./types/Compass.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/compass.es.js",
+      "require": "./dist/compass.umd.js",
+      "types": "./types/Compass.d.ts"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
   "scripts": {
-    "build": "rimraf dist && npx tsc && node ./tools/copyCss",
-    "build:watch": "npx tsc --watch & node ./tools/copyCss --watch",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0",
-    "publish:test": "yarn build && npm publish --access public --dry-run",
-    "publish": "yarn build && npm version patch -m \"bump version\" && npm publish --access public"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "publish:test": "yarn build && npm pack && npm publish --access public --dry-run"
   },
   "repository": {
     "type": "git",
@@ -22,8 +35,9 @@
   "bugs": {
     "url": "https://github.com/jedluk/map-gl-compass-pro/issues"
   },
-  "peerDependencies": {
-    "react-map-gl": ">=6.0.0"
+  "author": {
+    "name": "Jędrzej Łukasiuk",
+    "email": "jedrzej.lukasiuk@gmail.com"
   },
   "keywords": [
     "react-map-gl",
@@ -32,18 +46,31 @@
     "maplibre",
     "mapbox"
   ],
-  "author": {
-    "name": "Jędrzej Łukasiuk",
-    "email": "jedrzej.lukasiuk@gmail.com"
+  "peerDependencies": {
+    "maplibre-gl": ">=4.0.0",
+    "react": ">=17.0.0",
+    "react-map-gl": ">=7.0.0"
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^18.2.6",
-    "@typescript-eslint/eslint-plugin": "^5.59.6",
-    "@typescript-eslint/parser": "^5.59.6",
-    "eslint": "^8.41.0",
-    "react-map-gl": "^7.0.23",
-    "rimraf": "^5.0.1",
-    "typescript": "^5.0.4"
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.24",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "maplibre-gl": "^4.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-map-gl": "^7.1.7",
+    "typescript": "^5.0.4",
+    "vite": "^5.2.8",
+    "vite-plugin-dts": "^3.8.1"
+  },
+  "dependencies": {
+    "maplibre-compass-pro": "0.4.0"
   }
 }

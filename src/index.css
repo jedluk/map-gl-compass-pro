@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+}
+
+.maplibregl-ctrl-bottom-left {
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.maplibregl-ctrl-bottom-left:nth-of-type(2) {
+    bottom: 2rem;
+    left: 5rem;
+}
+
+.panel {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.panel select {
+    margin-right: 5px;
+}

@@ -1,65 +1,33 @@
-import './style/Compass.css'
+import 'maplibre-compass-pro/dist/style.css'
+import { Compass, CompassProps } from 'maplibre-compass-pro'
 
-import React from 'react'
-import { useMap } from 'react-map-gl'
-import {
-  deduceCompassSize,
-  deducePerspective,
-  isUndefined,
-  joinClassNames
-} from './lib'
-import { useMapOrientation } from './useMapOrientation.hook'
+import { useEffect, useRef } from 'react'
+import { useControl } from 'react-map-gl'
+import { ControlPosition } from 'maplibre-gl'
 
-interface CompassProps {
-  mapId?: string
-  size?: 'xs' | 'sm' | 'md' | 'lg'
-  visualizePitch?: boolean
-  wrapperClass?: string
-  onNeedleClick?: () => void
-}
+export default function CompassComponent(
+  props: CompassProps & { position?: ControlPosition }
+) {
+  const { size, visualizePitch, onClick, position, displayDirection } = props
 
-export function Compass(props: CompassProps) {
-  const { visualizePitch = false, size = 'md', mapId = 'current' } = props
+  const compassRef = useRef(new Compass({ size, visualizePitch, onClick }))
 
-  const { [mapId]: map } = useMap()
-  const [bearing, pitch] = useMapOrientation(mapId, visualizePitch)
+  useControl(() => compassRef.current, { position })
 
-  const handleNorthNeedleClick = () => {
-    if (isUndefined(props.onNeedleClick)) {
-      map?.resetNorth()
-      map?.resetNorthPitch()
-    } else {
-      props.onNeedleClick()
+  useEffect(() => {
+    if (size) {
+      compassRef.current.changeSize(size)
     }
-  }
+  }, [size])
 
-  const wrapperStyle = {
-    perspective: deducePerspective(size)
-  }
+  useEffect(() => {
+    if (!displayDirection) {
+      return
+    }
+    const compass = compassRef.current
+    compass.toggle()
+    return () => compass.toggle()
+  }, [displayDirection])
 
-  const compassStyle = {
-    '--compass-size': deduceCompassSize(size),
-    transform: joinClassNames(
-      `rotate(${bearing}deg)`,
-      visualizePitch ? `rotateX(${pitch}deg)` : ''
-    )
-  }
-
-  return (
-    <div
-      className={props.wrapperClass ?? 'compass-pro-wrapper'}
-      style={wrapperStyle}
-    >
-      <div data-size={size} className="compass-pro" style={compassStyle}>
-        <div className="needle" />
-        <div className="needle" />
-        <div className="needle" />
-        <div className="needle" />
-        <div className="needle" />
-        <div className="needle" />
-        <div className="inner-face" />
-        <div className="needlde-north" onClick={handleNorthNeedleClick} />
-      </div>
-    </div>
-  )
+  return null
 }
