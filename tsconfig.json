@@ -1,28 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
+    "target": "esnext",                       // Adjust this based on your needs
+    "module": "esnext",                       // Adjust this based on your needs
+    "declaration": true,                      // Generate .d.ts files
+    "declarationDir": "types",                // Output directory for .d.ts files
+    "emitDeclarationOnly": false,             // Emit both JS and declarations
+    "strict": true,                           // Enable all strict type-checking options
+    "esModuleInterop": true,                  // Enable emit interoperability between CommonJS and ES Modules
+    "skipLibCheck": true,                     // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,  // Ensure consistent file casing
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-
-    /* generate types declaration */
-    "declaration": true,
-
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",                            
+    "src/**/*.tsx"                            
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

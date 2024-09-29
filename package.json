@@ -6,10 +6,11 @@
   "exports": {
     ".": {
       "import": "./dist/compass.es.js",
-      "require": "./dist/compass.umd.js"
+      "require": "./dist/compass.umd.js",
+      "types": "./types/Compass.d.ts"
     }
   },
-  "types": "Compass.d.ts",
+  "types": "./types/Compass.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
