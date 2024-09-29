@@ -28,8 +28,9 @@
   "bugs": {
     "url": "https://github.com/jedluk/map-gl-compass-pro/issues"
   },
-  "peerDependencies": {
-    "react-map-gl": ">=6.0.0"
+  "author": {
+    "name": "Jędrzej Łukasiuk",
+    "email": "jedrzej.lukasiuk@gmail.com"
   },
   "keywords": [
     "react-map-gl",
@@ -38,9 +39,10 @@
     "maplibre",
     "mapbox"
   ],
-  "author": {
-    "name": "Jędrzej Łukasiuk",
-    "email": "jedrzej.lukasiuk@gmail.com"
+  "peerDependencies": {
+    "maplibre-gl": ">=4.0.0",
+    "react": ">=17.0.0",
+    "react-map-gl": ">=7.0.0"
   },
   "license": "MIT",
   "devDependencies": {
@@ -53,16 +55,15 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "mapbox-gl": "^3.2.0",
-    "maplibre-gl": "^4.1.2",
+    "maplibre-gl": "^4.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-map-gl": "^7.0.23",
+    "react-map-gl": "^7.1.7",
     "typescript": "^5.0.4",
     "vite": "^5.2.8",
     "vite-plugin-dts": "^3.8.1"
   },
   "dependencies": {
-    "maplibre-compass-pro": "0.2.0"
+    "maplibre-compass-pro": "0.3.0"
   }
 }

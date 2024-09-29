@@ -1,37 +1,28 @@
 import 'maplibre-gl/dist/maplibre-gl.css'
 import './index.css'
 
-import { CompassProps } from 'maplibre-compass-pro'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Compass from './Compass'
-import maplibre from 'maplibre-gl'
-import { Map } from 'react-map-gl'
+import { NavigationControl } from 'react-map-gl'
+import Map from 'react-map-gl/maplibre'
+
+type CompassSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export function DemoApp() {
-  const [size, setSize] = useState<CompassProps['size']>('md')
+  const [compassSize, setCompassSize] = useState<CompassSize>('md')
   const [displayDirection, setDisplayDirection] = useState(true)
 
+  const predefinedSizes: CompassSize[] = ['xs', 'sm', 'md', 'lg', 'xl']
+
   return (
-    <Map
-      // @ts-expect-error xyz
-      mapLib={maplibre}
-      initialViewState={{
-        longitude: -122.4,
-        latitude: 37.8,
-        zoom: 14
-      }}
-      style={{ width: '100%', height: '100vh' }}
-      mapStyle="/mapStyle.json"
-    >
-      <Compass size={size} displayDirection={displayDirection} />
+    <Map style={{ width: '100%', height: '100vh' }} mapStyle="/mapStyle.json">
+      <Compass size={compassSize} displayDirection={displayDirection} />
       <div className="panel">
         <select
           defaultValue="md"
-          onChange={({ target: { value } }) =>
-            setSize(value as CompassProps['size'])
-          }
+          onChange={({ target }) => setCompassSize(target.value as CompassSize)}
         >
-          {['xs', 'sm', 'md', 'lg', 'xl'].map((size) => (
+          {predefinedSizes.map((size) => (
             <option key={size} value={size}>
               size: {size}
             </option>
@@ -45,6 +36,7 @@ export function DemoApp() {
           <option value="">needle</option>
         </select>
       </div>
+      <NavigationControl position="top-right" />
     </Map>
   )
 }

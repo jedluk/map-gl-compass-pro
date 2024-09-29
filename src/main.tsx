@@ -1,4 +1,3 @@
-import React from 'react'
 import { DemoApp } from './DemoApp'
 import { createRoot } from 'react-dom/client'
 

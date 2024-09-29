@@ -9,8 +9,13 @@ body {
 }
 
 .maplibregl-ctrl-bottom-left {
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.maplibregl-ctrl-bottom-left:nth-of-type(2) {
+    bottom: 2rem;
+    left: 5rem;
 }
 
 .panel {
