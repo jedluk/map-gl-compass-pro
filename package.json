@@ -8,8 +8,8 @@
   "types": "./types/Compass.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/compass.es.js",
-      "require": "./dist/compass.umd.js",
+      "import": "./dist/compass.js",
+      "require": "./dist/compass.umd.cjs",
       "types": "./types/Compass.d.ts"
     },
     "./dist/style.css": {
