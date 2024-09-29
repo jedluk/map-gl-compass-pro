@@ -1,5 +1,34 @@
-node_modules
-types
-dist
+# Node modules
+node_modules/
 
+# Build output
+build/
+dist/
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+*.log
+
+# Dependency directories
+jspm_packages/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# private map styles
 public/mapStyleDev.json
