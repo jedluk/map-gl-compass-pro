@@ -3,14 +3,20 @@
   "version": "0.1.1",
   "description": "Compass pro for react-map-gl based projects",
   "type": "module",
+  "main": "./dist/compass.umd.cjs",
+  "module": "./dist/compass.js", 
+  "types": "./types/Compass.d.ts",
   "exports": {
     ".": {
       "import": "./dist/compass.es.js",
       "require": "./dist/compass.umd.js",
       "types": "./types/Compass.d.ts"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
-  "types": "./types/Compass.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
